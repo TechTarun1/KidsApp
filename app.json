@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "BottomTabApp",
-    "slug": "BottomTabApp",
+    "name": "KidsApp",
+    "slug": "kidsapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.saitarunboddeboyina.kidsapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f4b8669b-5e5e-442d-a041-dc67502a860e"
+      }
     }
-  }
+  },
+  "name": "KidsApp"
 }
