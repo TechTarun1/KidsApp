@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Slider from '@react-native-community/slider';
 import { AntDesign } from '@expo/vector-icons';
+import Audio from 'expo-av';
 
 const Alphabet = () => {
 

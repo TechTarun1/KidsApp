@@ -20,6 +20,8 @@ const BottomNavigation = () => {
                 headerShown: false,
                 headerTitleAlign: 'center',
                 unmountOnBlur: true,
+                tabBarStyle: { flexDirection: 'column' },
+                tabBarLabelStyle: { marginBottom: 5 },
             }}
         >
             <Tab.Screen name="Home" component={Home}
