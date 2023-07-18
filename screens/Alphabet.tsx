@@ -1,41 +1,63 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Slider from '@react-native-community/slider';
 import { AntDesign } from '@expo/vector-icons';
-import Audio from 'expo-av';
+import { Audio } from 'expo-av';
 
 const Alphabet = () => {
+
+    const [sound, setSound] = useState<any>();
+
+    const playSound = async () => {
+        const { sound } = await Audio.Sound.createAsync(
+            alphabets[currentAlphabetIndex].sound
+        );
+        setSound(sound);
+        await sound.playAsync();
+    }
+
+    const stopSound = async () => {
+        await sound.stopAsync()
+    }
+
+    useEffect(() => {
+        return sound
+            ? () => {
+                sound.unloadAsync();
+            }
+            : undefined;
+    }, [sound]);
 
     const navigation: any = useNavigation();
 
     const alphabets = [
-        { letter: 'A a', image: require('../assets/A.png'), objectName: 'Apple' },
-        { letter: 'B b', image: require('../assets/A.png'), objectName: 'Ball' },
-        { letter: 'C c', image: require('../assets/A.png'), objectName: 'Cat' },
-        { letter: 'D d', image: require('../assets/A.png'), objectName: 'Dog' },
-        { letter: 'E e', image: require('../assets/A.png'), objectName: 'Elephant' },
-        { letter: 'F f', image: require('../assets/A.png'), objectName: 'Fish' },
-        { letter: 'G g', image: require('../assets/A.png'), objectName: 'Giraffe' },
-        { letter: 'H h', image: require('../assets/A.png'), objectName: 'Horse' },
-        { letter: 'I i', image: require('../assets/A.png'), objectName: 'Ice Cream' },
-        { letter: 'J j', image: require('../assets/A.png'), objectName: 'Jug' },
-        { letter: 'K k', image: require('../assets/A.png'), objectName: 'Kite' },
-        { letter: 'L l', image: require('../assets/A.png'), objectName: 'Lion' },
-        { letter: 'M m', image: require('../assets/A.png'), objectName: 'Monkey' },
-        { letter: 'N n', image: require('../assets/A.png'), objectName: 'Nest' },
-        { letter: 'O o', image: require('../assets/A.png'), objectName: 'Owl' },
-        { letter: 'P p', image: require('../assets/A.png'), objectName: 'Penguin' },
-        { letter: 'Q q', image: require('../assets/A.png'), objectName: 'Queen' },
-        { letter: 'R r', image: require('../assets/A.png'), objectName: 'Rabbit' },
-        { letter: 'S s', image: require('../assets/A.png'), objectName: 'Sun' },
-        { letter: 'T t', image: require('../assets/A.png'), objectName: 'Tree' },
-        { letter: 'U u', image: require('../assets/A.png'), objectName: 'Umbrella' },
-        { letter: 'V v', image: require('../assets/A.png'), objectName: 'Violin' },
-        { letter: 'W w', image: require('../assets/A.png'), objectName: 'Whale' },
-        { letter: 'X x', image: require('../assets/A.png'), objectName: 'Xylophone' },
-        { letter: 'Y y', image: require('../assets/A.png'), objectName: 'Yacht' },
-        { letter: 'Z z', image: require('../assets/A.png'), objectName: 'Zebra' },
+        { letter: 'A a', image: require('../assets/A.png'), objectName: 'Apple', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'B b', image: require('../assets/A.png'), objectName: 'Ball', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'C c', image: require('../assets/A.png'), objectName: 'Cat', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'D d', image: require('../assets/A.png'), objectName: 'Dog', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'E e', image: require('../assets/A.png'), objectName: 'Elephant', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'F f', image: require('../assets/A.png'), objectName: 'Fish', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'G g', image: require('../assets/A.png'), objectName: 'Giraffe', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'H h', image: require('../assets/A.png'), objectName: 'Horse', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'I i', image: require('../assets/A.png'), objectName: 'Ice Cream', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'J j', image: require('../assets/A.png'), objectName: 'Jug', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'K k', image: require('../assets/A.png'), objectName: 'Kite', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'L l', image: require('../assets/A.png'), objectName: 'Lion', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'M m', image: require('../assets/A.png'), objectName: 'Monkey', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'N n', image: require('../assets/A.png'), objectName: 'Nest', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'O o', image: require('../assets/A.png'), objectName: 'Owl', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'P p', image: require('../assets/A.png'), objectName: 'Penguin', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'Q q', image: require('../assets/A.png'), objectName: 'Queen', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'R r', image: require('../assets/A.png'), objectName: 'Rabbit', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'S s', image: require('../assets/A.png'), objectName: 'Sun', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'T t', image: require('../assets/A.png'), objectName: 'Tree', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'U u', image: require('../assets/A.png'), objectName: 'Umbrella', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'V v', image: require('../assets/A.png'), objectName: 'Violin', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'W w', image: require('../assets/A.png'), objectName: 'Whale', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'X x', image: require('../assets/A.png'), objectName: 'Xylophone', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'Y y', image: require('../assets/A.png'), objectName: 'Yacht', sound: require('../assets/Alphabet.mp3') },
+        { letter: 'Z z', image: require('../assets/A.png'), objectName: 'Zebra', sound: require('../assets/Alphabet.mp3') },
     ];
 
     const [currentAlphabetIndex, setCurrentAlphabetIndex] = useState(0);
@@ -78,7 +100,12 @@ const Alphabet = () => {
                     <Text style={{ borderWidth: 1, borderColor: 'lightgray', borderRadius: 15, width: 'auto', paddingLeft: 10 }}>Speak the sentence</Text>
                     <Text style={{ fontSize: 24, color: 'orange', fontWeight: '500', marginTop: 10 }}>"{alphabets[currentAlphabetIndex].letter.split(' ')[0]} for {alphabets[currentAlphabetIndex].objectName}"</Text>
                 </View>
-                <Image source={require('../assets/play-circle.png')} />
+                <TouchableOpacity onPress={() => { playSound() }}>
+                    <Image source={require('../assets/play-circle.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { stopSound() }}>
+                    <Text>Stop</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ width: '90%', marginTop: '17%', height: '37%' }}>
                 <TouchableOpacity style={currentAlphabetIndex > 0 ? styles.button : styles.disabledBtn} onPress={() => currentAlphabetIndex > 0 ? handleSliderChange(currentAlphabetIndex - 1) : ''}>
