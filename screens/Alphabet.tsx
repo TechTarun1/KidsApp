@@ -69,7 +69,7 @@ const Alphabet = () => {
                 />
                 <Text style={{ fontWeight: 'bold' }}>{currentAlphabetIndex}/25</Text>
             </View>
-            <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', padding: '4%', height: '30%' }}>
+            <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-evenly', padding: '4%', height: '30%' }}>
                 <Text style={styles.letter}>{alphabets[currentAlphabetIndex].letter}</Text>
                 <Image source={alphabets[currentAlphabetIndex].image} style={styles.image} />
             </View>
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
         borderColor: 'orange',
         borderWidth: 1,
         padding: 10,
-        marginTop: '20%'
     },
     button: {
         backgroundColor: 'orange',

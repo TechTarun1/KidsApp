@@ -12,17 +12,18 @@ const Home = () => {
             <ImageBackground
                 source={require('../assets/background.png')}
                 style={styles.backgroundImage}
+                resizeMode="stretch"
             >
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/sentence.png')) }} style={{ flex: 1, left: '63%', bottom: '2%', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/sentence.png')) }} style={{ flex: 1, left: '79%', bottom: '2%', justifyContent: 'center' }}>
                     <Image source={require('../assets/sentence.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/greeting.png')) }} style={{ flex: 1, left: '27%', bottom: '8%', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/greeting.png')) }} style={{ flex: 1, left: '19%', bottom: '6%', justifyContent: 'center' }}>
                     <Image source={require('../assets/greeting.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/alphabet.png')) }} style={{ flex: 1, left: '75%', bottom: '3%' }}>
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/alphabet.png')) }} style={{ flex: 1, left: '79%', bottom: '3%' }}>
                     <Image source={require('../assets/alphabet.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/intro.png')) }} style={{ flex: 1, left: '17%', bottom: '16%' }}>
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/intro.png')) }} style={{ flex: 1, left: '19%', bottom: '16%' }}>
                     <Image source={require('../assets/intro.png')} />
                 </TouchableOpacity>
             </ImageBackground>
