@@ -7,7 +7,7 @@ import { Audio } from 'expo-av';
 
 const Alphabet = () => {
 
-    const [sound, setSound] = useState<any>();
+    const [sound, setSound] = useState<any>(null);
 
     const playSound = async () => {
         const { sound } = await Audio.Sound.createAsync(
@@ -18,6 +18,7 @@ const Alphabet = () => {
     }
 
     const stopSound = async () => {
+        setSound(null);
         await sound.stopAsync()
     }
 
@@ -100,12 +101,12 @@ const Alphabet = () => {
                     <Text style={{ borderWidth: 1, borderColor: 'lightgray', borderRadius: 15, width: 'auto', paddingLeft: 10 }}>Speak the sentence</Text>
                     <Text style={{ fontSize: 24, color: 'orange', fontWeight: '500', marginTop: 10 }}>"{alphabets[currentAlphabetIndex].letter.split(' ')[0]} for {alphabets[currentAlphabetIndex].objectName}"</Text>
                 </View>
-                <TouchableOpacity onPress={() => { playSound() }}>
+                {sound == null ? <TouchableOpacity onPress={() => { playSound() }}>
                     <Image source={require('../assets/play-circle.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { stopSound() }}>
-                    <Text>Stop</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> :
+                    <TouchableOpacity onPress={() => { stopSound() }}>
+                        <Image source={require('../assets/pause.png')} style={{ height: 50, width: 50, borderRadius: 50, backgroundColor: 'red' }} />
+                    </TouchableOpacity>}
             </View>
             <View style={{ width: '90%', marginTop: '17%', height: '37%' }}>
                 <TouchableOpacity style={currentAlphabetIndex > 0 ? styles.button : styles.disabledBtn} onPress={() => currentAlphabetIndex > 0 ? handleSliderChange(currentAlphabetIndex - 1) : ''}>
