@@ -55,7 +55,7 @@ const Level5 = () => {
   // Calculate the number of columns based on the available screen width
   const screenWidth = Dimensions.get('window').width;
   const numColumns = 3;
-  const columnWidth = (screenWidth - 40) / numColumns; // Subtracting 40 to account for margins and padding
+  const columnWidth = (screenWidth) / numColumns; // Subtracting 40 to account for margins and padding
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#FFF',
     margin: 10,
-    paddingHorizontal: 10,
   },
   wordCell: {
     justifyContent: 'center',

@@ -18,16 +18,7 @@ const Level2 = () => {
           console.log('Error playing sound:', error);
         }
       };
-    
-      const stopSound = async () => {
-        try {
-          if (sound) {
-            await sound.stopAsync();
-          }
-        } catch (error) {
-          console.log('Error stopping sound:', error);
-        }
-      };
+  
     
       useEffect(() => {
         return () => {

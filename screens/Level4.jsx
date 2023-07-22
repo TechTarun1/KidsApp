@@ -16,24 +16,24 @@ const Level4 = () => {
     // Calculate the number of columns based on the available screen width
     const screenWidth = Dimensions.get('window').width;
     const numColumns = 3;
-    const columnWidth = (screenWidth - 40) / numColumns; // Subtracting 40 to account for margins and padding
+    const columnWidth = (screenWidth) / numColumns; // Subtracting 40 to account for margins and padding
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.head}>Word Practice</Text>
             <Text style={styles.head}>CVC Words</Text>
             <Text style={styles.headerText}>Short 'a' words</Text>
-                <View style={styles.wordsTable}>
-                    <FlatList
-                        data={aWords}
-                        renderItem={({ item }) => (
-                            <View style={[styles.wordCell, { width: columnWidth }]}>
-                                <Text style={styles.wordText}>{item}</Text>
-                            </View>
-                        )}
-                        keyExtractor={(item, index) => index.toString()}
-                        numColumns={numColumns}
-                    />
+            <View style={styles.wordsTable}>
+                <FlatList
+                    data={aWords}
+                    renderItem={({ item }) => (
+                        <View style={[styles.wordCell, { width: columnWidth }]}>
+                            <Text style={styles.wordText}>{item}</Text>
+                        </View>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                    numColumns={numColumns}
+                />
             </View>
             <Text style={styles.headerText}>Short 'e' words</Text>
             <View style={styles.wordsTable}>
@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#FFF',
         margin: 10,
-        paddingHorizontal: 10,
     },
     wordCell: {
         justifyContent: 'center',
@@ -198,6 +197,12 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         textAlign: 'left',
     },
+    bubbleBorder: {
+        borderWidth: 2,
+        borderColor: '#4F6B6F',
+        borderRadius: 50,
+        padding: 10,
+    }
 });
 
 export default Level4;
