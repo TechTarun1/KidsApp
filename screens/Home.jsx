@@ -21,7 +21,7 @@ const Home = () => {
                 >
                     <Image source={require('../assets/sentence.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/greeting.png')); setLevelName('Level:4'); setLevelNavigation('Level4'); }} style={{ flex: 1, left: '13%', bottom: '6%', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/greeting.png')); setLevelName('Level:4'); setLevelNavigation('Level4'); }} style={{ flex: 1, left: '25%', top: '2%', justifyContent: 'center' }}>
                     <Image source={require('../assets/greeting.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/alphabet.png')); setLevelName('Level:3'); setLevelNavigation('Level3'); }} style={{ flex: 1, left: '78%', top: '5%' }}>
