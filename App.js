@@ -5,6 +5,10 @@ import Congrats from './screens/Congrats';
 import Alphabet from './screens/Alphabet';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Level2 from './screens/Level2';
+import Level3 from './screens/Level3';
+import Level5 from './screens/Level5';
+import Level4 from './screens/Level4';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +38,26 @@ export default function App() {
           <Stack.Screen
             name={"Alphabet"}
             component={Alphabet}
+            options={{ headerShown: false, navigationBarColor: 'transparent' }}
+          />
+          <Stack.Screen
+            name={"Level2"}
+            component={Level2}
+            options={{ headerShown: false, navigationBarColor: 'transparent' }}
+          />
+          <Stack.Screen
+            name={"Level3"}
+            component={Level3}
+            options={{ headerShown: false, navigationBarColor: 'transparent' }}
+          />
+          <Stack.Screen
+            name={"Level4"}
+            component={Level4}
+            options={{ headerShown: false, navigationBarColor: 'transparent' }}
+          />
+          <Stack.Screen
+            name={"Level5"}
+            component={Level5}
             options={{ headerShown: false, navigationBarColor: 'transparent' }}
           />
         </Stack.Navigator>

@@ -7,7 +7,11 @@ import { Audio } from 'expo-av';
 
 const Alphabet = () => {
 
-    const [sound, setSound] = useState<any>(null);
+    const [sound, setSound] = useState(null);
+
+    const isVowel = (char) => {
+        return ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'].includes(char);
+    };
 
     const playSound = async () => {
         const { sound } = await Audio.Sound.createAsync(
@@ -30,7 +34,7 @@ const Alphabet = () => {
             : undefined;
     }, [sound]);
 
-    const navigation: any = useNavigation();
+    const navigation = useNavigation();
 
     const alphabets = [
         { letter: 'A a', image: require('../assets/A.png'), objectName: 'Apple', sound: require('../assets/Alphabet.mp3') },
@@ -69,6 +73,7 @@ const Alphabet = () => {
     };
 
     const handleNext = () => {
+        setSound(null);
         if (currentAlphabetIndex === alphabets.length - 1) {
             navigation.navigate('Congrats');
         } else {
@@ -92,8 +97,15 @@ const Alphabet = () => {
                 />
                 <Text style={{ fontWeight: 'bold' }}>{currentAlphabetIndex}/25</Text>
             </View>
-            <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-evenly', padding: '4%', height: '30%' }}>
-                <Text style={styles.letter}>{alphabets[currentAlphabetIndex].letter}</Text>
+            <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-evenly', padding: '4%', height: '35%' }}>
+                {/* Highlight the vowels in the letter */}
+                <Text style={styles.letter}>
+                    {alphabets[currentAlphabetIndex].letter.split(' ').map((char, index) => (
+                        <Text key={index} style={isVowel(char) ? styles.vowel : styles.consonant}>
+                            {char}
+                        </Text>
+                    ))}
+                </Text>
                 <Image source={alphabets[currentAlphabetIndex].image} style={styles.image} />
             </View>
             <View style={[styles.play]}>
@@ -179,7 +191,18 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: 'white',
-    }
+    },
+    vowel: {
+        fontSize: 94,
+        fontWeight: '500',
+        color: 'blue', // Set your preferred color for vowels
+    },
+    // Style for consonants
+    consonant: {
+        fontSize: 94,
+        fontWeight: '500',
+        color: '#C2410C',
+    },
 });
 
 export default Alphabet;

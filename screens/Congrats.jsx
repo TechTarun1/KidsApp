@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Congrats = () => {
+
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={{ height: '20%', justifyContent: 'center' }}>
@@ -21,7 +25,7 @@ const Congrats = () => {
                 <Image source={require('../assets/rating.png')} style={{ resizeMode: 'cover' }} />
                 <Text style={{ alignSelf: 'center' }}>Exp. 250/250</Text>
             </View>
-            <TouchableOpacity style={styles.viewBtn}>
+            <TouchableOpacity style={styles.viewBtn} onPress={() => { navigation.navigate('Home') }}>
                 <Text style={{ color: 'orange', textAlign: 'center', fontWeight: '400', fontSize: 15 }}>Continue</Text>
             </TouchableOpacity>
         </View>
