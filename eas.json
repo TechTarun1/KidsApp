@@ -4,13 +4,43 @@
   },
   "build": {
     "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+      "channel": "development",
+      "developmentClient": false,
+      "distribution": "internal",
+      "ios": {
+        "distribution": "internal"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+       "ENVIRONMENT":"dev"
+      }
     },
-    "preview": {
-      "distribution": "internal"
+    "test": {
+      "distribution": "internal",
+      "ios": {
+        "distribution": "internal"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "ENVIRONMENT":"test"
+       }
     },
-    "production": {}
+    "production": {
+      "channel": "production",
+      "ios": {
+        "distribution": "internal"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "ENVIRONMENT":"prod"
+       }
+    }
   },
   "submit": {
     "production": {}

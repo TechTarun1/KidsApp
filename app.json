@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "KidsApp",
-    "slug": "kidsapp",
+    "name": "${config.name}",
+    "slug": "${config.slug}",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,22 +16,23 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.saitarunboddeboyina.kidsapp"
+      "bundleIdentifier": "${config.package}"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "${config.package}"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "f4b8669b-5e5e-442d-a041-dc67502a860e"
+        "projectId": "${config.projectId}"
       }
     }
   },
-  "name": "KidsApp"
+  "name": "${config.name}"
 }
