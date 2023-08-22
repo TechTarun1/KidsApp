@@ -1,4 +1,3 @@
-import * as Sentry from "@sentry/react-native";
 import { StatusBar } from 'react-native';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import BottomNavigation from './navigation/BottomNavigation';
@@ -15,13 +14,6 @@ import Level4 from './screens/Level4';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
-  Sentry.init({
-    dsn: "https://2952c72b8b16369a7853a8fd91ffeee7@o4505742530576384.ingest.sentry.io/4505742532608000",
-    // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-    // We recommend adjusting this value in production.
-    tracesSampleRate: 1.0,
-  });
 
   const statusbarHeight = StatusBar.currentHeight | 0;
 

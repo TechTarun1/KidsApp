@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#DDD',
     },
     title: {
-        fontSize: 20,
+        fontSize: "20",
         fontWeight: 'bold',
         color: '#333',
     },
