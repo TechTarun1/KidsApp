@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 const Settings = () => {
+    
     return (
         <View style={styles.container}>
             <View style={styles.itemContainer}>

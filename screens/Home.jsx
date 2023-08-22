@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import intro from '../assets/intro.png';
+import alphabet from '../assets/alphabet.png';
+import greeting from '../assets/greeting.png';
+import sentence from '../assets/sentence.png';
 
 const Home = () => {
     const navigation = useNavigation();
@@ -16,22 +20,22 @@ const Home = () => {
                 style={styles.backgroundImage}
                 resizeMode="stretch"
             >
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/sentence.png')); setLevelName('Beginner Level:5'); setLevelNavigation('Level5'); }}
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(sentence); setLevelName('Beginner Level:5'); setLevelNavigation('Level5'); }}
                     style={{ flex: 1, left: '70%', top: '2%', justifyContent: 'center' }}
                 >
-                    <Image source={require('../assets/sentence.png')} />
+                    <Image source={sentence} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/greeting.png')); setLevelName('Level:4'); setLevelNavigation('Level4'); }} style={{ flex: 1, left: '25%', top: '2%', justifyContent: 'center' }}>
-                    <Image source={require('../assets/greeting.png')} />
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(greeting); setLevelName('Level:4'); setLevelNavigation('Level4'); }} style={{ flex: 1, left: '25%', top: '2%', justifyContent: 'center' }}>
+                    <Image source={greeting} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/alphabet.png')); setLevelName('Level:3'); setLevelNavigation('Level3'); }} style={{ flex: 1, left: '78%', top: '5%' }}>
-                    <Image source={require('../assets/alphabet.png')} />
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(alphabet); setLevelName('Level:3'); setLevelNavigation('Level3'); }} style={{ flex: 1, left: '78%', top: '5%' }}>
+                    <Image source={alphabet} style={{ objectFit: 'contain' }} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/intro.png')); setLevelName('Level:2'); setLevelNavigation('Level2'); }} style={{ flex: 1, left: '19%', bottom: '3%' }}>
-                    <Image source={require('../assets/intro.png')} />
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(intro); setLevelName('Level:2'); setLevelNavigation('Level2'); }} style={{ flex: 1, left: '19%', bottom: '3%' }}>
+                    <Image source={intro} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { setViewImage(true); setImage(require('../assets/intro.png')); setLevelName('Beginner Level:1'); setLevelNavigation('Alphabet'); }} style={{ flex: 1, left: '63%', bottom: '10%' }}>
-                    <Image source={require('../assets/intro.png')} />
+                <TouchableOpacity onPress={() => { setViewImage(true); setImage(intro); setLevelName('Beginner Level:1'); setLevelNavigation('Alphabet'); }} style={{ flex: 1, left: '63%', bottom: '10%' }}>
+                    <Image source={intro} />
                 </TouchableOpacity>
             </ImageBackground>
             {
